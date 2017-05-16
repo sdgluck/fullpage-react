@@ -239,7 +239,7 @@ function handleScroll(data, direction, scrollElement, callback) {
     removeAllButActive.call(_this2, activeSlide);
     done();
   }], function () {
-    var newState = changeSlide(_this2.state, { intent: intent, type: action }, 1);
+    var newState = changeSlide(_this2.state, { type: action }, 1);
 
     _this2.setState(newState, function () {
       callback(_this2.state);
