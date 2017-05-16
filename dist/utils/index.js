@@ -120,8 +120,6 @@ function handleScroll(data, direction, scrollElement, callback) {
 
 
   var intent = INTENT_MAP[direction][data.intent];
-
-  var scrollUp = intent === 'UP' || intent === 'LEFT';
   var scrollDown = intent === 'DOWN' || intent === 'RIGHT';
 
   //windows firefox produces very low wheel activity so we have t\\o multiply it
@@ -241,7 +239,7 @@ function handleScroll(data, direction, scrollElement, callback) {
     removeAllButActive.call(_this2, activeSlide);
     done();
   }], function () {
-    var newState = changeSlide(_this2.state, { type: action }, 1);
+    var newState = changeSlide(_this2.state, { intent: intent, type: action }, 1);
 
     _this2.setState(newState, function () {
       callback(_this2.state);
